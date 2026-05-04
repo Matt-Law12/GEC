@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEC Consulting | GIS · CAD · Environmental</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0d1117;
+      --ink-mid:   #2c3540;
+      --ink-soft:  #4f606e;
+      --rule:      #c8d4dc;
+      --rule-lt:   #e4ecf0;
+      --paper:     #f7f9fb;
+      --white:     #ffffff;
+      --accent:    #1a5c8a;
+      --accent-lt: #d0e6f4;
+      --accent-hi: #0e8fd4;
+      --grid:      rgba(30, 80, 120, 0.06);
+
+      --mono:  'Share Tech Mono', monospace;
+      --body:  'Barlow', sans-serif;
+      --cond:  'Barlow Condensed', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      color: var(--ink);
+      background: var(--paper);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── GRID TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247, 249, 251, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      font-family: var(--cond);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .nav-logo-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--rule);
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent-hi); }
+
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      border: none;
+      padding: 9px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--accent-hi); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 3rem 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.18;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent-hi);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent-hi);
+    }
+
+    h1 {
+      font-family: var(--cond);
+      font-size: clamp(42px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-desc {
+      font-family: var(--body);
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 440px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      padding: 14px 28px;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--accent-hi); border-color: var(--accent-hi); }
+
+    .btn-ghost {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: transparent;
+      padding: 14px 28px;
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* Hero graphic panel */
+    .hero-graphic {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-diagram {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 3rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-hi);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent-hi);
+    }
+
+    h2 {
+      font-family: var(--cond);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.05;
+    }
+
+    h2 span { color: var(--accent); }
+
+    .section-intro {
+      font-family: var(--body);
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      background: var(--ink);
+      padding: 36px 3rem;
+    }
+
+    .about-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--cond);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-num span {
+      color: var(--accent-hi);
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 4px;
+    }
+
+    .about-strip-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+    }
+
+    .service-card {
+      padding: 2.5rem;
+      border-right: 1px solid var(--rule);
+      background: var(--white);
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:last-child { border-right: none; }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-card:hover { background: var(--paper); }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-family: var(--cond);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-lt);
+      padding: 4px 10px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-photo-box {
+      position: relative;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--rule-lt);
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--ink-soft);
+    }
+
+    .about-photo-placeholder svg {
+      width: 48px;
+      height: 48px;
+      opacity: 0.3;
+    }
+
+    .about-photo-placeholder span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    .about-frame-accent {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--accent);
+      z-index: -1;
+    }
+
+    .about-text h2 { margin-bottom: 1rem; }
+
+    .about-body {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-credentials {
+      margin-top: 2rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .cred-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-hi);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .cred-item strong {
+      font-family: var(--cond);
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 15px;
+      display: block;
+      letter-spacing: 0.02em;
+    }
+
+    .cred-item span {
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .portfolio-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--rule-lt);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--ink-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-img svg {
+      width: 36px;
+      height: 36px;
+      opacity: 0.25;
+    }
+
+    .portfolio-img span {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.35;
+    }
+
+    .portfolio-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(13,17,23,0.55) 100%);
+    }
+
+    .portfolio-category {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      padding: 4px 10px;
+    }
+
+    .portfolio-body {
+      padding: 1.5rem;
+    }
+
+    .portfolio-body h3 {
+      font-family: var(--cond);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .portfolio-body p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .portfolio-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule-lt);
+    }
+
+    .portfolio-meta-detail {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    /* ── PROCESS ── */
+    .process-section { background: var(--white); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      margin-top: 3.5rem;
+    }
+
+    .process-step {
+      padding: 2rem;
+      border-right: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .process-step:last-child { border-right: none; }
+
+    .step-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--accent-hi);
+      margin-bottom: 1rem;
+    }
+
+    .process-step h3 {
+      font-family: var(--cond);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .process-step p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-left .section-label { color: var(--accent-hi); }
+    .contact-left .section-label::before { background: var(--accent-hi); }
+
+    .contact-left h2 { color: var(--white); }
+
+    .contact-left p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent-hi);
+    }
+
+    .contact-detail-icon svg { width: 16px; height: 16px; }
+
+    .contact-detail-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 2px;
+    }
+
+    .contact-detail-val {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent-hi);
+    }
+
+    .form-group select option {
+      background: var(--ink-mid);
+      color: var(--white);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 15px 32px;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { background: var(--accent-hi); border-color: var(--accent-hi); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080d12;
+      padding: 28px 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: var(--cond);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── SEPARATOR ── */
+    .h-rule {
+      height: 1px;
+      background: var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-graphic { display: none; }
+      .section-inner { padding: 64px 1.5rem; }
+      .about-strip { padding: 28px 1.5rem; }
+      .about-strip-inner { flex-wrap: wrap; gap: 2rem; justify-content: center; }
+      .about-strip-divider { display: none; }
+      .services-grid { grid-template-columns: 1fr; border: 1px solid var(--rule); }
+      .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+      .service-card:last-child { border-bottom: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-step:nth-child(2) { border-right: none; }
+      .process-step:nth-child(3) { border-top: 1px solid var(--rule); }
+      .process-step:nth-child(4) { border-top: 1px solid var(--rule); border-right: none; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; padding: 64px 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 24px 1.5rem; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-mark">GEC</span>
+      <span class="nav-logo-sep"></span>
+      <span class="nav-logo-sub">Consulting</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Request a Proposal</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-label">GIS · CAD · Environmental</div>
+        <h1>Precision.<br/>Analysis.<br/><span>Results.</span></h1>
+        <p class="hero-desc">
+          Independent consulting services for GIS mapping, CAD drafting, and environmental analysis.
+          Delivering technically rigorous, data-driven solutions for complex land and infrastructure projects.
+        </p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn-ghost">Start a Project</a>
+        </div>
+      </div>
+
+      <div class="hero-graphic">
+        <!-- Engineering / topo diagram SVG -->
+        <svg class="hero-diagram" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- grid -->
+          <defs>
+            <pattern id="sg" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M30 0 L0 0 0 30" fill="none" stroke="rgba(26,92,138,0.12)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="420" height="380" fill="url(#sg)"/>
+
+          <!-- topo contours -->
+          <path d="M30 300 Q100 240 180 260 Q260 280 340 220 Q390 185 400 160" stroke="rgba(26,92,138,0.18)" stroke-width="1" fill="none"/>
+          <path d="M20 330 Q90 270 175 290 Q265 310 350 248 Q396 210 408 185" stroke="rgba(26,92,138,0.13)" stroke-width="1" fill="none"/>
+          <path d="M40 275 Q105 210 185 232 Q268 254 348 192 Q395 158 402 135" stroke="rgba(26,92,138,0.13)" stroke-width="1" fill="none"/>
+          <path d="M55 250 Q118 186 198 208 Q280 228 352 164 Q396 130 402 108" stroke="rgba(26,92,138,0.10)" stroke-width="1" fill="none"/>
+
+          <!-- plot boundary -->
+          <rect x="60" y="80" width="300" height="220" rx="0" stroke="#1a5c8a" stroke-width="1.5" stroke-dasharray="6 4" fill="rgba(26,92,138,0.03)"/>
+
+          <!-- property lines inside -->
+          <line x1="60" y1="190" x2="360" y2="190" stroke="#1a5c8a" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.4"/>
+          <line x1="200" y1="80" x2="200" y2="300" stroke="#1a5c8a" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.4"/>
+
+          <!-- north arrow -->
+          <g transform="translate(346, 56)">
+            <circle cx="0" cy="0" r="16" stroke="#1a5c8a" stroke-width="1" fill="white" fill-opacity="0.9"/>
+            <line x1="0" y1="-10" x2="0" y2="10" stroke="#1a5c8a" stroke-width="1.5"/>
+            <polygon points="0,-12 -4,-2 4,-2" fill="#1a5c8a"/>
+            <text x="0" y="20" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8" fill="#1a5c8a" letter-spacing="0.08em">N</text>
+          </g>
+
+          <!-- scale bar -->
+          <g transform="translate(62, 316)">
+            <line x1="0" y1="0" x2="120" y2="0" stroke="#2c3540" stroke-width="1.5"/>
+            <line x1="0" y1="-4" x2="0" y2="4" stroke="#2c3540" stroke-width="1.5"/>
+            <line x1="60" y1="-3" x2="60" y2="3" stroke="#2c3540" stroke-width="1"/>
+            <line x1="120" y1="-4" x2="120" y2="4" stroke="#2c3540" stroke-width="1.5"/>
+            <text x="0" y="14" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4f606e">0</text>
+            <text x="48" y="14" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4f606e">250 ft</text>
+            <text x="108" y="14" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4f606e">500</text>
+          </g>
+
+          <!-- GIS data points -->
+          <circle cx="140" cy="150" r="5" fill="#0e8fd4" opacity="0.9"/>
+          <circle cx="240" cy="120" r="5" fill="#0e8fd4" opacity="0.9"/>
+          <circle cx="300" cy="200" r="5" fill="#0e8fd4" opacity="0.9"/>
+          <circle cx="170" cy="230" r="5" fill="#0e8fd4" opacity="0.9"/>
+          <circle cx="110" cy="200" r="4" fill="#0e8fd4" opacity="0.6"/>
+          <circle cx="320" cy="140" r="4" fill="#0e8fd4" opacity="0.6"/>
+
+          <!-- connectors between points -->
+          <line x1="140" y1="150" x2="240" y2="120" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35"/>
+          <line x1="240" y1="120" x2="300" y2="200" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35"/>
+          <line x1="300" y1="200" x2="170" y2="230" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35"/>
+          <line x1="170" y1="230" x2="140" y2="150" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35"/>
+
+          <!-- elevation labels -->
+          <text x="142" y="143" font-family="'Share Tech Mono',monospace" font-size="8" fill="#1a5c8a">+82.4</text>
+          <text x="242" y="113" font-family="'Share Tech Mono',monospace" font-size="8" fill="#1a5c8a">+91.7</text>
+          <text x="302" y="194" font-family="'Share Tech Mono',monospace" font-size="8" fill="#1a5c8a">+78.1</text>
+
+          <!-- title block bottom right -->
+          <rect x="234" y="304" width="130" height="56" fill="white" stroke="#c8d4dc" stroke-width="1"/>
+          <line x1="234" y1="318" x2="364" y2="318" stroke="#c8d4dc" stroke-width="0.75"/>
+          <text x="244" y="314" font-family="'Share Tech Mono',monospace" font-size="7" fill="#4f606e" letter-spacing="0.1em">GEC CONSULTING</text>
+          <text x="244" y="330" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="600" fill="#0d1117">SITE ANALYSIS</text>
+          <text x="244" y="343" font-family="'Share Tech Mono',monospace" font-size="7" fill="#4f606e">DWG NO. GEC-001</text>
+          <text x="244" y="354" font-family="'Share Tech Mono',monospace" font-size="7" fill="#4f606e">SCALE 1" = 500'</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="about-strip">
+    <div class="about-strip-inner">
+      <div class="stat-item">
+        <div class="stat-num"><span>10</span>+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="about-strip-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num"><span>GIS</span></div>
+        <div class="stat-label">Spatial Analysis</div>
+      </div>
+      <div class="about-strip-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num"><span>CAD</span></div>
+        <div class="stat-label">Civil Drafting</div>
+      </div>
+      <div class="about-strip-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num"><span>ENV</span></div>
+        <div class="stat-label">Environmental</div>
+      </div>
+      <div class="about-strip-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num"><span>LLC</span></div>
+        <div class="stat-label">Licensed & Insured</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="section-label">What We Do</div>
+      <h2>Technical <span>Services</span></h2>
+      <p class="section-intro">
+        GEC Consulting provides independent technical expertise across GIS, CAD, and environmental disciplines —
+        delivering precise, analysis-driven deliverables for government agencies, engineering firms, and private clients.
+      </p>
+
+      <div class="services-grid">
+        <!-- GIS -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="40" height="40" rx="0" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="4" y1="16" x2="44" y2="16" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line x1="4" y1="28" x2="44" y2="28" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line x1="16" y1="4" x2="16" y2="44" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line x1="28" y1="4" x2="28" y2="44" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="2.5" fill="currentColor"/>
+          </svg>
+          <h3>GIS &amp; Spatial Analysis</h3>
+          <p>
+            Comprehensive geographic information system services including spatial data management, custom map production,
+            geodatabase development, and site suitability modeling. Proficient in ArcGIS Pro, QGIS, and Python-based geoprocessing workflows.
+          </p>
+          <div class="service-tags">
+            <span class="tag">ArcGIS Pro</span>
+            <span class="tag">QGIS</span>
+            <span class="tag">Spatial Modeling</span>
+            <span class="tag">Remote Sensing</span>
+            <span class="tag">Geodatabase</span>
+          </div>
+        </div>
+
+        <!-- CAD -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="36" height="32" rx="0" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="6" y1="14" x2="42" y2="14" stroke="currentColor" stroke-width="1"/>
+            <line x1="14" y1="8" x2="14" y2="14" stroke="currentColor" stroke-width="1"/>
+            <polyline points="14,22 22,28 34,20" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="14" y1="34" x2="34" y2="34" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <h3>CAD Drafting &amp; Design</h3>
+          <p>
+            Professional 2D and 3D CAD production for civil engineering, site planning, and infrastructure projects.
+            Deliverables include site plans, grading plans, utility layouts, and as-builts — formatted to project and agency standards.
+          </p>
+          <div class="service-tags">
+            <span class="tag">AutoCAD</span>
+            <span class="tag">Civil 3D</span>
+            <span class="tag">Site Plans</span>
+            <span class="tag">Grading</span>
+            <span class="tag">As-Builts</span>
+          </div>
+        </div>
+
+        <!-- Environmental -->
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M24 6 Q32 18 24 24 Q16 18 24 6Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <line x1="24" y1="24" x2="24" y2="42" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 32 Q20 26 24 32" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+          </svg>
+          <h3>Environmental Consulting</h3>
+          <p>
+            Environmental field assessments, permit support, and regulatory compliance consulting for land development
+            and infrastructure projects. Services include wetland delineation support, Phase I ESA coordination, and NEPA documentation.
+          </p>
+          <div class="service-tags">
+            <span class="tag">Wetlands</span>
+            <span class="tag">Phase I ESA</span>
+            <span class="tag">NEPA</span>
+            <span class="tag">Field Assessment</span>
+            <span class="tag">Permitting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="h-rule"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-photo-box">
+          <div class="about-photo-placeholder">
+            <!-- Replace this div with an <img> tag pointing to your professional photo -->
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="24" r="12" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 56 Q10 42 32 42 Q54 42 54 56" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+            <span>Your Photo Here</span>
+          </div>
+          <div class="about-frame-accent"></div>
+        </div>
+
+        <div class="about-text">
+          <div class="section-label">About</div>
+          <h2>The Person Behind <span>the Work</span></h2>
+          <p class="about-body">
+            [Your name] is an independent consultant and the founder of GEC Consulting, LLC. With over [X] years of hands-on
+            experience in GIS analysis, civil CAD production, and environmental field work, [he/she/they] brings a depth of
+            technical expertise typically found only in large engineering firms — delivered with the responsiveness and personal
+            attention of a dedicated individual consultant.
+          </p>
+          <p class="about-body">
+            Based in [Your City, State], GEC Consulting has supported projects ranging from [brief description of project types]
+            across [region/industries served]. Every project receives direct, senior-level attention from start to finish.
+          </p>
+
+          <div class="about-credentials">
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <strong>Education</strong>
+                <span>[Degree, Major] — [University Name], [Year]</span>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <strong>Certifications &amp; Licenses</strong>
+                <span>[e.g., GISP, PE, PWS, or other relevant credentials]</span>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <strong>Software Proficiency</strong>
+                <span>ArcGIS Pro · AutoCAD Civil 3D · QGIS · Python · Microsoft Office Suite</span>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <strong>Business Entity</strong>
+                <span>GEC Consulting, LLC — [State] Registered, Fully Insured</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-label">Selected Work</div>
+      <h2>Project <span>Portfolio</span></h2>
+      <p class="section-intro">
+        A sample of completed projects spanning GIS analysis, civil CAD, and environmental work.
+        Replace these cards with your actual project photos, titles, and descriptions.
+      </p>
+
+      <div class="portfolio-grid">
+
+        <!-- Card 1 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <!-- Replace with: <img src="images/project1.jpg" alt="Project Title" style="width:100%;height:100%;object-fit:cover;"> -->
+            <svg viewBox="0 0 36 36" fill="none"><rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="8" stroke="currentColor" stroke-width="1.5"/><line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="0.75"/><line x1="18" y1="2" x2="18" y2="34" stroke="currentColor" stroke-width="0.75"/></svg>
+            <span>Add Project Image</span>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-category">GIS</span>
+          </div>
+          <div class="portfolio-body">
+            <h3>Project Title Here</h3>
+            <p>Brief description of what was done, the client type, the deliverable, and any notable outcome or challenge solved.</p>
+            <div class="portfolio-meta">
+              <span class="portfolio-meta-detail">Client Type</span>
+              <span class="portfolio-meta-detail">Year</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <svg viewBox="0 0 36 36" fill="none"><rect x="2" y="6" width="32" height="24" stroke="currentColor" stroke-width="1.5"/><line x1="2" y1="12" x2="34" y2="12" stroke="currentColor" stroke-width="0.75"/><polyline points="8,20 16,16 24,22 32,14" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>Add Project Image</span>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-category">CAD</span>
+          </div>
+          <div class="portfolio-body">
+            <h3>Project Title Here</h3>
+            <p>Brief description of what was done, the client type, the deliverable, and any notable outcome or challenge solved.</p>
+            <div class="portfolio-meta">
+              <span class="portfolio-meta-detail">Client Type</span>
+              <span class="portfolio-meta-detail">Year</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="1.5"/><path d="M18 4 Q24 14 18 18 Q12 14 18 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="18" y1="18" x2="18" y2="32" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>Add Project Image</span>
+            <div class="portfolio-img-overlay"></div>
+            <span class="portfolio-category">Environmental</span>
+          </div>
+          <div class="portfolio-body">
+            <h3>Project Title Here</h3>
+            <p>Brief description of what was done, the client type, the deliverable, and any notable outcome or challenge solved.</p>
+            <div class="portfolio-meta">
+              <span class="portfolio-meta-detail">Client Type</span>
+              <span class="portfolio-meta-detail">Year</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="section-inner">
+      <div class="section-label">How It Works</div>
+      <h2>The <span>Engagement</span> Process</h2>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01 // INTAKE</div>
+          <h3>Project Scoping</h3>
+          <p>We discuss your project requirements, timeline, deliverables, and budget to determine a clear scope of work and define measurable outcomes.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02 // PROPOSAL</div>
+          <h3>Proposal &amp; Agreement</h3>
+          <p>A written proposal with itemized fees, a defined schedule, and a services agreement is issued for your review and approval before work begins.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03 // EXECUTION</div>
+          <h3>Technical Work</h3>
+          <p>Field work, data analysis, drafting, or report production proceeds according to the agreed scope with regular progress updates provided throughout.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04 // DELIVERY</div>
+          <h3>Deliverables &amp; Review</h3>
+          <p>Final deliverables are submitted in agreed formats. A review period with revision allowances ensures every product meets your project requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label">Get in Touch</div>
+        <h2>Start a <span style="color: var(--accent-hi);">Project</span></h2>
+        <p>
+          Available for project-based engagements, retainer agreements, and subcontract work with
+          engineering and environmental firms. Response within one business day.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="3" width="14" height="10" rx="0" stroke="currentColor" stroke-width="1.25"/>
+              <polyline points="1,3 8,9 15,3" stroke="currentColor" stroke-width="1.25"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-val">your.email@gec-consulting.com</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 1h3l1 4-2 1a10 10 0 005 5l1-2 4 1v3a1 1 0 01-1 1C7 14 2 9 2 2a1 1 0 011-1z" stroke="currentColor" stroke-width="1.25"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-val">(XXX) XXX-XXXX</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.25"/>
+              <path d="M8 1a6 6 0 016 6c0 4-6 9-6 9S2 11 2 7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.25"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-val">Tallahassee, FL — Available Nationwide</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="jane@company.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" placeholder="(555) 000-0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="org">Organization / Company</label>
+            <input type="text" id="org" placeholder="Engineering firm, agency, or private" />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service">
+              <option value="" disabled selected>Select a service area</option>
+              <option>GIS &amp; Spatial Analysis</option>
+              <option>CAD Drafting &amp; Design</option>
+              <option>Environmental Consulting</option>
+              <option>Multiple / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Description</label>
+            <textarea id="message" placeholder="Briefly describe your project, timeline, and any key deliverables needed..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Inquiry &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GEC CONSULTING, LLC</div>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2025 GEC Consulting, LLC &mdash; All Rights Reserved</div>
+  </footer>
+
+</body>
+</html>
