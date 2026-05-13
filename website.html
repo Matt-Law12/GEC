@@ -1036,6 +1036,25 @@
             }
         }
     </style>
+    <style>
+        .logo-img {
+            height: 62px;
+            width: auto;
+        }
+    </style>
+    <style>
+        .Portfolio-img {
+            height: 180px;
+            width: auto;
+        }
+    </style>
+    <style>
+        .Main-img {
+            height: 250px;
+            width: auto;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -1043,12 +1062,11 @@
     <!-- NAV -->
     <nav>
         <a href="#" class="nav-logo">
-            <img src="GEC/Logo.png" alt="GEC Consulting Logo" class="logo-img">
+            <img src="images/logo.png" alt="GEC Consulting Logo" class="logo-img">
         </a>
 
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1074,92 +1092,16 @@
 
             <div class="hero-graphic">
                 <!-- Engineering / topo diagram SVG -->
-                <svg class="hero-diagram" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- grid -->
-                    <defs>
-                        <pattern id="sg" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                            <path d="M30 0 L0 0 0 30" fill="none" stroke="rgba(26,92,138,0.12)" stroke-width="0.5" />
-                        </pattern>
-                    </defs>
-                    <rect width="420" height="380" fill="url(#sg)" />
-
-                    <!-- topo contours -->
-                    <path d="M30 300 Q100 240 180 260 Q260 280 340 220 Q390 185 400 160" stroke="rgba(26,92,138,0.18)"
-                        stroke-width="1" fill="none" />
-                    <path d="M20 330 Q90 270 175 290 Q265 310 350 248 Q396 210 408 185" stroke="rgba(26,92,138,0.13)"
-                        stroke-width="1" fill="none" />
-                    <path d="M40 275 Q105 210 185 232 Q268 254 348 192 Q395 158 402 135" stroke="rgba(26,92,138,0.13)"
-                        stroke-width="1" fill="none" />
-                    <path d="M55 250 Q118 186 198 208 Q280 228 352 164 Q396 130 402 108" stroke="rgba(26,92,138,0.10)"
-                        stroke-width="1" fill="none" />
-
-                    <!-- plot boundary -->
-                    <rect x="60" y="80" width="300" height="220" rx="0" stroke="#1a5c8a" stroke-width="1.5"
-                        stroke-dasharray="6 4" fill="rgba(26,92,138,0.03)" />
-
-                    <!-- property lines inside -->
-                    <line x1="60" y1="190" x2="360" y2="190" stroke="#1a5c8a" stroke-width="0.75" stroke-dasharray="4 4"
-                        opacity="0.4" />
-                    <line x1="200" y1="80" x2="200" y2="300" stroke="#1a5c8a" stroke-width="0.75" stroke-dasharray="4 4"
-                        opacity="0.4" />
-
-                    <!-- north arrow -->
-                    <g transform="translate(346, 56)">
-                        <circle cx="0" cy="0" r="16" stroke="#1a5c8a" stroke-width="1" fill="white"
-                            fill-opacity="0.9" />
-                        <line x1="0" y1="-10" x2="0" y2="10" stroke="#1a5c8a" stroke-width="1.5" />
-                        <polygon points="0,-12 -4,-2 4,-2" fill="#1a5c8a" />
-                        <text x="0" y="20" text-anchor="middle" font-family="'Share Tech Mono',monospace" font-size="8"
-                            fill="#1a5c8a" letter-spacing="0.08em">N</text>
-                    </g>
-
-                    <!-- scale bar -->
-                    <g transform="translate(62, 316)">
-                        <line x1="0" y1="0" x2="120" y2="0" stroke="#2c3540" stroke-width="1.5" />
-                        <line x1="0" y1="-4" x2="0" y2="4" stroke="#2c3540" stroke-width="1.5" />
-                        <line x1="60" y1="-3" x2="60" y2="3" stroke="#2c3540" stroke-width="1" />
-                        <line x1="120" y1="-4" x2="120" y2="4" stroke="#2c3540" stroke-width="1.5" />
-                        <text x="0" y="14" font-family="'Share Tech Mono',monospace" font-size="8"
-                            fill="#4f606e">0</text>
-                        <text x="48" y="14" font-family="'Share Tech Mono',monospace" font-size="8" fill="#4f606e">250
-                            ft</text>
-                        <text x="108" y="14" font-family="'Share Tech Mono',monospace" font-size="8"
-                            fill="#4f606e">500</text>
-                    </g>
-
-                    <!-- GIS data points -->
-                    <circle cx="140" cy="150" r="5" fill="#0e8fd4" opacity="0.9" />
-                    <circle cx="240" cy="120" r="5" fill="#0e8fd4" opacity="0.9" />
-                    <circle cx="300" cy="200" r="5" fill="#0e8fd4" opacity="0.9" />
-                    <circle cx="170" cy="230" r="5" fill="#0e8fd4" opacity="0.9" />
-                    <circle cx="110" cy="200" r="4" fill="#0e8fd4" opacity="0.6" />
-                    <circle cx="320" cy="140" r="4" fill="#0e8fd4" opacity="0.6" />
-
-                    <!-- connectors between points -->
-                    <line x1="140" y1="150" x2="240" y2="120" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35" />
-                    <line x1="240" y1="120" x2="300" y2="200" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35" />
-                    <line x1="300" y1="200" x2="170" y2="230" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35" />
-                    <line x1="170" y1="230" x2="140" y2="150" stroke="#0e8fd4" stroke-width="0.75" opacity="0.35" />
-
-                    <!-- elevation labels -->
-                    <text x="142" y="143" font-family="'Share Tech Mono',monospace" font-size="8"
-                        fill="#1a5c8a">+82.4</text>
-                    <text x="242" y="113" font-family="'Share Tech Mono',monospace" font-size="8"
-                        fill="#1a5c8a">+91.7</text>
-                    <text x="302" y="194" font-family="'Share Tech Mono',monospace" font-size="8"
-                        fill="#1a5c8a">+78.1</text>
-
-                    <!-- title block bottom right -->
-                    <rect x="234" y="304" width="130" height="56" fill="white" stroke="#c8d4dc" stroke-width="1" />
-                    <line x1="234" y1="318" x2="364" y2="318" stroke="#c8d4dc" stroke-width="0.75" />
-                    <text x="244" y="314" font-family="'Share Tech Mono',monospace" font-size="7" fill="#4f606e"
-                        letter-spacing="0.1em">GEC CONSULTING</text>
-                    <text x="244" y="330" font-family="'Barlow Condensed',sans-serif" font-size="11" font-weight="600"
-                        fill="#0d1117">SITE ANALYSIS</text>
-                    <text x="244" y="343" font-family="'Share Tech Mono',monospace" font-size="7" fill="#4f606e">DWG NO.
-                        GEC-001</text>
-                    <text x="244" y="354" font-family="'Share Tech Mono',monospace" font-size="7" fill="#4f606e">SCALE
-                        1" = 500'</text>
+                <a href="#" class="nav-logo">
+                    <img src="images/logo.png" alt="GEC Consulting Logo" class="Main-img">
+                </a>
+                <!-- grid -->
+                <defs>
+                    <pattern id="sg" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <path d="M30 0 L0 0 0 30" fill="none" stroke="rgba(26,92,138,0.12)" stroke-width="0.5" />
+                    </pattern>
+                </defs>
+                <rect width="420" height="380" fill="url(#sg)" />
                 </svg>
             </div>
         </div>
@@ -1300,31 +1242,9 @@
                 <!-- Card 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-img">
-                        <!-- Replace with: <img src="images/project1.jpg" alt="Project Title" style="width:100%;height:100%;object-fit:cover;"> -->
-                        <svg viewBox="0 0 36 36" fill="none">
-                            <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.5" />
-                            <circle cx="18" cy="18" r="8" stroke="currentColor" stroke-width="1.5" />
-                            <line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="0.75" />
-                            <line x1="18" y1="2" x2="18" y2="34" stroke="currentColor" stroke-width="0.75" />
-                        </svg>
-                        <span>Add Project Image</span>
-                        <div class="portfolio-img-overlay"></div>
-                        <span class="portfolio-category">GIS</span>
-                    </div>
-                    <div class="portfolio-body">
-                        <h3>Project Title Here</h3>
-                        <p>Brief description of what was done, the client type, the deliverable, and any notable outcome
-                            or challenge solved.</p>
-                        <div class="portfolio-meta">
-                            <span class="portfolio-meta-detail">Client Type</span>
-                            <span class="portfolio-meta-detail">Year</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img">
+                        <a href="#" class="nav-logo">
+                            <img src="images/Bracket1.png" alt="GEC Consulting Logo" class="Portfolio-img">
+                        </a>
                         <svg viewBox="0 0 36 36" fill="none">
                             <rect x="2" y="6" width="32" height="24" stroke="currentColor" stroke-width="1.5" />
                             <line x1="2" y1="12" x2="34" y2="12" stroke="currentColor" stroke-width="0.75" />
@@ -1332,22 +1252,27 @@
                         </svg>
                         <span>Add Project Image</span>
                         <div class="portfolio-img-overlay"></div>
-                        <span class="portfolio-category">CAD</span>
+                        <span class="portfolio-category">GIS</span>
                     </div>
                     <div class="portfolio-body">
-                        <h3>Project Title Here</h3>
-                        <p>Brief description of what was done, the client type, the deliverable, and any notable outcome
-                            or challenge solved.</p>
+                        <h3>GIS Shoreline Analysis</h3>
+                        <p>Technical analysis of shoreline elevation and profile utilizing GIS software. Work included
+                            generating orthomosaics and digital elevation models from drone data, deriving MHW lines and
+                            breakwater elevations, and mapping of the project scope for future change analysis and
+                            scientific communication.</p>
                         <div class="portfolio-meta">
-                            <span class="portfolio-meta-detail">Client Type</span>
-                            <span class="portfolio-meta-detail">Year</span>
+                            <span class="portfolio-meta-detail">Government Agency</span>
+                            <span class="portfolio-meta-detail">2025</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 2 -->
                 <div class="portfolio-card">
                     <div class="portfolio-img">
+                        <a href="#" class="nav-logo">
+                            <img src="images/Bracket1.png" alt="GEC Consulting Logo" class="Portfolio-img">
+                        </a>
                         <svg viewBox="0 0 36 36" fill="none">
                             <circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="1.5" />
                             <path d="M18 4 Q24 14 18 18 Q12 14 18 4Z" stroke="currentColor" stroke-width="1.5"
@@ -1359,15 +1284,47 @@
                         <span class="portfolio-category">Environmental</span>
                     </div>
                     <div class="portfolio-body">
-                        <h3>Project Title Here</h3>
-                        <p>Brief description of what was done, the client type, the deliverable, and any notable outcome
-                            or challenge solved.</p>
+                        <h3>Site Planning</h3>
+                        <p>Developed a complete site plan for developement utilizing Civil 3D to delineate wetlands,
+                            draw setback lines for code compliance, and calculate the complete buildable area for the
+                            project site.</p>
                         <div class="portfolio-meta">
-                            <span class="portfolio-meta-detail">Client Type</span>
-                            <span class="portfolio-meta-detail">Year</span>
+                            <span class="portfolio-meta-detail">Environmental Consulting Firm</span>
+                            <span class="portfolio-meta-detail">2026</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <a href="#" class="nav-logo">
+                            <img src="images/Bracket1.png" alt="GEC Consulting Logo" class="Portfolio-img">
+                        </a>
+                        <svg viewBox="0 0 36 36" fill="none">
+                            <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.5" />
+                            <circle cx="18" cy="18" r="8" stroke="currentColor" stroke-width="1.5" />
+                            <line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="0.75" />
+                            <line x1="18" y1="2" x2="18" y2="34" stroke="currentColor" stroke-width="0.75" />
+                        </svg>
+                        <span>Add Project Image</span>
+                        <div class="portfolio-img-overlay"></div>
+                        <span class="portfolio-category">CAD</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Environmental Parts Design</h3>
+                        <p>Developed plans for a Datasonde Mounting Bracket that was manufactured for their water
+                            quality monitoring stations. This allowed the client to obtain a robust solution that was
+                            tailer made to their needs.</p>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-meta-detail">Government Agency</span>
+                            <span class="portfolio-meta-detail">2026</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
             </div>
         </div>
@@ -1513,7 +1470,6 @@
         <ul class="footer-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="footer-copy">&copy; 2025 GEC Consulting, LLC &mdash; All Rights Reserved</div>
