@@ -21,17 +21,18 @@
         }
 
         :root {
-            --ink: #0d1117;
-            --ink-mid: #2c3540;
-            --ink-soft: #4f606e;
-            --rule: #c8d4dc;
-            --rule-lt: #e4ecf0;
-            --paper: #f7f9fb;
+            --ink: #282828;
+            --ink-mid: #3a3733;
+            --ink-soft: #6b665c;
+            --rule: #e3ded0;
+            --rule-lt: #efece4;
+            --paper: #f7f5f0;
             --white: #ffffff;
-            --accent: #1a5c8a;
-            --accent-lt: #d0e6f4;
-            --accent-hi: #0e8fd4;
-            --grid: rgba(30, 80, 120, 0.06);
+            --cream: #fffbf1;
+            --accent: #282828;
+            --accent-lt: #efe9d8;
+            --accent-hi: #45413a;
+            --grid: rgba(40, 40, 40, 0.05);
 
             --mono: 'Share Tech Mono', monospace;
             --body: 'Barlow', sans-serif;
@@ -71,9 +72,9 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(247, 249, 251, 0.92);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--rule);
+            background: var(--ink);
+            border-bottom: 1px solid rgba(255, 251, 241, 0.08);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -99,13 +100,13 @@
             font-size: 11px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--ink-soft);
+            color: rgba(255, 251, 241, 0.65);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-hi);
+            color: var(--cream);
         }
 
         .nav-cta {
@@ -113,8 +114,8 @@
             font-size: 11px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--white);
-            background: var(--accent);
+            color: var(--ink);
+            background: var(--cream);
             border: none;
             padding: 9px 20px;
             cursor: pointer;
@@ -123,7 +124,7 @@
         }
 
         .nav-cta:hover {
-            background: var(--accent-hi);
+            background: #ffffff;
         }
 
         /* ── HERO ── */
@@ -178,7 +179,7 @@
         }
 
         h1 span {
-            color: var(--accent);
+            color: var(--accent-hi);
         }
 
         .hero-desc {
@@ -203,7 +204,7 @@
             font-size: 12px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--white);
+            color: var(--paper);
             background: var(--accent);
             padding: 14px 28px;
             text-decoration: none;
@@ -222,7 +223,7 @@
             font-size: 12px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--ink);
             background: transparent;
             padding: 14px 28px;
             text-decoration: none;
@@ -284,7 +285,7 @@
         }
 
         h2 span {
-            color: var(--accent);
+            color: var(--accent-hi);
         }
 
         .section-intro {
@@ -307,9 +308,9 @@
             max-width: 1100px;
             margin: 0 auto;
             display: flex;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .stat-item {
@@ -320,12 +321,12 @@
             font-family: var(--cond);
             font-size: 42px;
             font-weight: 700;
-            color: var(--white);
+            color: var(--cream);
             line-height: 1;
         }
 
         .stat-num span {
-            color: var(--accent-hi);
+            color: var(--cream);
         }
 
         .stat-label {
@@ -333,14 +334,14 @@
             font-size: 10px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 251, 241, 0.5);
             margin-top: 4px;
         }
 
         .about-strip-divider {
             width: 1px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 251, 241, 0.14);
         }
 
         /* ── SERVICES ── */
@@ -389,7 +390,7 @@
             width: 48px;
             height: 48px;
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            color: var(--ink);
         }
 
         .service-card h3 {
@@ -420,7 +421,7 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--ink);
             background: var(--accent-lt);
             padding: 4px 10px;
         }
@@ -460,12 +461,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .portfolio-img-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, transparent 55%, rgba(13, 17, 23, 0.5) 100%);
+            background: linear-gradient(to bottom, transparent 55%, rgba(40, 40, 40, 0.55) 100%);
             pointer-events: none;
         }
 
@@ -477,7 +479,7 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--white);
+            color: var(--cream);
             background: var(--accent);
             padding: 4px 10px;
         }
@@ -578,8 +580,8 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(255, 251, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 251, 241, 0.03) 1px, transparent 1px);
             background-size: 40px 40px;
         }
 
@@ -596,21 +598,28 @@
         }
 
         .contact-left .section-label {
-            color: var(--accent-hi);
+            color: var(--cream);
+            opacity: 0.7;
         }
 
         .contact-left .section-label::before {
-            background: var(--accent-hi);
+            background: var(--cream);
+            opacity: 0.7;
         }
 
         .contact-left h2 {
-            color: var(--white);
+            color: var(--cream);
+        }
+
+        .contact-left h2 span {
+            color: var(--cream);
+            opacity: 0.6;
         }
 
         .contact-left p {
             font-size: 16px;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 251, 241, 0.55);
             line-height: 1.75;
             margin-bottom: 2.5rem;
         }
@@ -625,12 +634,12 @@
         .contact-detail-icon {
             width: 36px;
             height: 36px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 251, 241, 0.16);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: var(--accent-hi);
+            color: var(--cream);
         }
 
         .contact-detail-icon svg {
@@ -643,13 +652,13 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 251, 241, 0.35);
             margin-bottom: 2px;
         }
 
         .contact-detail-val {
             font-size: 15px;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 251, 241, 0.8);
             font-weight: 300;
         }
 
@@ -676,7 +685,7 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 251, 241, 0.45);
         }
 
         .form-group input,
@@ -685,9 +694,9 @@
             font-family: var(--body);
             font-size: 14px;
             font-weight: 300;
-            color: var(--white);
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--cream);
+            background: rgba(255, 251, 241, 0.07);
+            border: 1px solid rgba(255, 251, 241, 0.16);
             padding: 12px 14px;
             outline: none;
             transition: border-color 0.2s;
@@ -697,18 +706,18 @@
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 251, 241, 0.25);
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: var(--accent-hi);
+            border-color: rgba(255, 251, 241, 0.5);
         }
 
         .form-group select option {
             background: var(--ink-mid);
-            color: var(--white);
+            color: var(--cream);
         }
 
         .form-group textarea {
@@ -721,9 +730,9 @@
             font-size: 12px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--white);
-            background: var(--accent);
-            border: 1px solid var(--accent);
+            color: var(--ink);
+            background: var(--cream);
+            border: 1px solid var(--cream);
             padding: 15px 32px;
             cursor: pointer;
             transition: background 0.2s;
@@ -732,13 +741,12 @@
         }
 
         .form-submit:hover {
-            background: var(--accent-hi);
-            border-color: var(--accent-hi);
+            background: #ffffff;
         }
 
         /* ── FOOTER ── */
         footer {
-            background: #080d12;
+            background: #1c1c1c;
             padding: 28px 3rem;
             display: flex;
             align-items: center;
@@ -750,7 +758,7 @@
             font-size: 16px;
             font-weight: 700;
             letter-spacing: 0.08em;
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 251, 241, 0.35);
         }
 
         .footer-copy {
@@ -758,7 +766,7 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 251, 241, 0.22);
         }
 
         .footer-links {
@@ -772,13 +780,13 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 251, 241, 0.28);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 251, 241, 0.65);
         }
 
         /* ── SEPARATOR ── */
@@ -919,12 +927,12 @@
     <section class="hero">
         <div class="hero-inner">
             <div class="hero-text">
-                <div class="hero-label">GIS · CAD · Environmental</div>
+                <div class="hero-label">GIS · Environmental · CAD</div>
                 <h1>Precision.<br />Analysis.<br /><span>Results.</span></h1>
                 <p class="hero-desc">
                     Independent consulting services covering GIS mapping, CAD drafting, and environmental
-                    permitting support. Clear, accurate deliverables for land and infrastructure projects — the
-                    kind of work agencies and reviewers can approve without back-and-forth.
+                    permitting support. The work is built to be clear and accurate, so agencies and reviewers can
+                    approve it without a lot of back and forth.
                 </p>
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn-primary">View Portfolio</a>
@@ -957,11 +965,6 @@
                 <div class="stat-num"><span>ENV</span></div>
                 <div class="stat-label">Site &amp; Permit Work</div>
             </div>
-            <div class="about-strip-divider"></div>
-            <div class="stat-item">
-                <div class="stat-num"><span>LLC</span></div>
-                <div class="stat-label">Licensed &amp; Insured</div>
-            </div>
         </div>
     </div>
 
@@ -971,9 +974,9 @@
             <div class="section-label">What We Do</div>
             <h2>Technical <span>Services</span></h2>
             <p class="section-intro">
-                GEC Consulting provides independent technical support across three areas: GIS (digital mapping and
-                location data), CAD (technical site drawings), and environmental permitting. Work is delivered for
-                municipalities, environmental firms, and private clients alike.
+                GEC Consulting provides independent technical support across three areas: GIS, meaning digital
+                mapping and location data; CAD, meaning technical site drawings; and environmental permitting.
+                Work is delivered for municipalities, environmental firms, and private clients alike.
             </p>
 
             <div class="services-grid">
@@ -990,10 +993,10 @@
                     </svg>
                     <h3>GIS &amp; Mapping</h3>
                     <p>
-                        Building and organizing digital maps and location-based data — from a simple parcel map to
-                        a searchable web map staff and residents can use on their own. Includes site analysis
-                        (figuring out where things should go, or what's near what) using ArcGIS Pro and drone-based
-                        data collection.
+                        Building and organizing digital maps and location-based data, from a simple parcel map to
+                        a searchable web map that staff and residents can use on their own. This includes site
+                        analysis, such as figuring out where something should go or what's located nearby, using
+                        ArcGIS Pro along with drone-based data collection.
                     </p>
                     <div class="service-tags">
                         <span class="tag">ArcGIS Pro</span>
@@ -1016,9 +1019,9 @@
                     </svg>
                     <h3>CAD Drafting &amp; Design</h3>
                     <p>
-                        Technical site drawings for civil engineering, site planning, and permitting projects — the
-                        precise, to-scale drawings that engineers, surveyors, and reviewing agencies require before
-                        a project can move forward.
+                        Technical site drawings for civil engineering, site planning, and permitting projects.
+                        These are the precise, to-scale drawings that engineers, surveyors, and reviewing agencies
+                        require before a project can move forward.
                     </p>
                     <div class="service-tags">
                         <span class="tag">AutoCAD</span>
@@ -1043,8 +1046,8 @@
                     <p>
                         Field assessments and permitting support for land and waterfront development. This
                         includes identifying wetlands on a site, confirming a project meets local code, and
-                        handling the paperwork for state and federal permits — including FDEP and the Army Corps
-                        of Engineers.
+                        handling the paperwork for state and federal permits, including FDEP and the Army Corps of
+                        Engineers.
                     </p>
                     <div class="service-tags">
                         <span class="tag">Docks</span>
@@ -1066,8 +1069,8 @@
             <div class="section-label">Selected Work</div>
             <h2>Project <span>Portfolio</span></h2>
             <p class="section-intro">
-                A sample of completed projects — mapping, technical drawings, and permitting support delivered for
-                real clients and agencies.
+                A sample of completed projects, including mapping, technical drawings, and permitting support
+                delivered for real clients and agencies.
             </p>
 
             <div class="portfolio-grid">
@@ -1081,8 +1084,8 @@
                     </div>
                     <div class="portfolio-body">
                         <h3>Dock Site Design &amp; Permitting</h3>
-                        <p>Surveyed a waterfront site and produced the CAD site plan showing shoreline setbacks and
-                            construction limits, then used that drawing to secure permits from the Florida
+                        <p>Surveyed a waterfront site and produced the CAD site plan showing shoreline setbacks
+                            and construction limits, then used that drawing to secure permits from the Florida
                             Department of Environmental Protection (FDEP) and the U.S. Army Corps of Engineers.</p>
                         <div class="portfolio-meta">
                             <span class="portfolio-meta-detail">Private Client</span>
@@ -1101,7 +1104,7 @@
                     <div class="portfolio-body">
                         <h3>Magnolia Cemetery Web Map</h3>
                         <p>Mapped every burial block and lot at a historic city cemetery, then published the data
-                            as an interactive web map — so city staff and the public can look up a burial location
+                            as an interactive web map, so city staff and the public can look up a burial location
                             without digging through paper records.</p>
                         <div class="portfolio-meta">
                             <span class="portfolio-meta-detail">City of Apalachicola, FL</span>
@@ -1120,7 +1123,7 @@
                     <div class="portfolio-body">
                         <h3>Wetland Delineation &amp; Buildable Area</h3>
                         <p>Identified and mapped the wetlands on a project site, then calculated exactly how much
-                            of the property is buildable once all required setbacks are applied — giving the
+                            of the property is buildable once all required setbacks are applied, giving the
                             client a clear number before design work even begins.</p>
                         <div class="portfolio-meta">
                             <span class="portfolio-meta-detail">Environmental Consulting Firm</span>
@@ -1143,26 +1146,26 @@
                 <div class="process-step">
                     <div class="step-num">01 // INTAKE</div>
                     <h3>Project Scoping</h3>
-                    <p>We discuss your project requirements, timeline, deliverables, and budget to determine a clear
-                        scope of work and define measurable outcomes.</p>
+                    <p>We discuss your project requirements, timeline, deliverables, and budget to determine a
+                        clear scope of work and define measurable outcomes.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-num">02 // PROPOSAL</div>
                     <h3>Proposal &amp; Agreement</h3>
-                    <p>A written proposal with itemized fees, a defined schedule, and a services agreement is issued for
-                        your review and approval before work begins.</p>
+                    <p>A written proposal with itemized fees, a defined schedule, and a services agreement is
+                        issued for your review and approval before work begins.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-num">03 // EXECUTION</div>
                     <h3>Technical Work</h3>
-                    <p>Field work, data analysis, drafting, or report production proceeds according to the agreed scope
-                        with regular progress updates provided throughout.</p>
+                    <p>Field work, data analysis, drafting, or report production proceeds according to the agreed
+                        scope with regular progress updates provided throughout.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-num">04 // DELIVERY</div>
                     <h3>Deliverables &amp; Review</h3>
-                    <p>Final deliverables are submitted in agreed formats. A review period with revision allowances
-                        ensures every product meets your project requirements.</p>
+                    <p>Final deliverables are submitted in agreed formats. A review period with revision
+                        allowances ensures every product meets your project requirements.</p>
                 </div>
             </div>
         </div>
@@ -1173,7 +1176,7 @@
         <div class="contact-inner">
             <div class="contact-left">
                 <div class="section-label">Get in Touch</div>
-                <h2>Start a <span style="color: var(--accent-hi);">Project</span></h2>
+                <h2>Start a <span>Project</span></h2>
                 <p>
                     Available for project-based engagements, retainer agreements, and subcontract work with
                     municipalities, environmental firms, and surveying firms. Response within one business day.
