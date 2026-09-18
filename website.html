@@ -88,30 +88,6 @@
             text-decoration: none;
         }
 
-        .nav-logo-mark {
-            font-family: var(--cond);
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-        }
-
-        .nav-logo-sep {
-            width: 1px;
-            height: 18px;
-            background: var(--rule);
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .nav-logo-sub {
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.14em;
-            color: var(--ink-soft);
-            text-transform: uppercase;
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
@@ -159,14 +135,6 @@
             align-items: center;
             padding: 120px 3rem 80px;
             overflow: hidden;
-        }
-
-        .hero-bg-lines {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-            opacity: 0.18;
         }
 
         .hero-inner {
@@ -267,7 +235,6 @@
             border-color: var(--accent);
         }
 
-        /* Hero graphic panel */
         .hero-graphic {
             position: relative;
             display: flex;
@@ -275,12 +242,6 @@
             justify-content: center;
         }
 
-        .hero-diagram {
-            width: 100%;
-            max-width: 440px;
-        }
-
-        /* ── SECTION WRAPPER ── */
         section {
             position: relative;
             z-index: 1;
@@ -464,105 +425,6 @@
             padding: 4px 10px;
         }
 
-        /* ── ABOUT ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .about-photo-box {
-            position: relative;
-        }
-
-        .about-photo-placeholder {
-            width: 100%;
-            aspect-ratio: 4/5;
-            background: var(--rule-lt);
-            border: 1px solid var(--rule);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 12px;
-            color: var(--ink-soft);
-        }
-
-        .about-photo-placeholder svg {
-            width: 48px;
-            height: 48px;
-            opacity: 0.3;
-        }
-
-        .about-photo-placeholder span {
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            opacity: 0.45;
-        }
-
-        .about-frame-accent {
-            position: absolute;
-            bottom: -16px;
-            right: -16px;
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--accent);
-            z-index: -1;
-        }
-
-        .about-text h2 {
-            margin-bottom: 1rem;
-        }
-
-        .about-body {
-            font-size: 16px;
-            font-weight: 300;
-            color: var(--ink-soft);
-            line-height: 1.75;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-credentials {
-            margin-top: 2rem;
-            border-top: 1px solid var(--rule);
-            padding-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .cred-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 14px;
-        }
-
-        .cred-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent-hi);
-            flex-shrink: 0;
-            margin-top: 7px;
-        }
-
-        .cred-item strong {
-            font-family: var(--cond);
-            font-weight: 600;
-            color: var(--ink);
-            font-size: 15px;
-            display: block;
-            letter-spacing: 0.02em;
-        }
-
-        .cred-item span {
-            color: var(--ink-soft);
-            font-weight: 300;
-        }
-
         /* ── PORTFOLIO ── */
         .portfolio-grid {
             display: grid;
@@ -590,31 +452,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            gap: 10px;
-            color: var(--ink-soft);
             position: relative;
             overflow: hidden;
         }
 
-        .portfolio-img svg {
-            width: 36px;
-            height: 36px;
-            opacity: 0.25;
-        }
-
-        .portfolio-img span {
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            opacity: 0.35;
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .portfolio-img-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, transparent 50%, rgba(13, 17, 23, 0.55) 100%);
+            background: linear-gradient(to bottom, transparent 55%, rgba(13, 17, 23, 0.5) 100%);
+            pointer-events: none;
         }
 
         .portfolio-category {
@@ -988,11 +840,6 @@
                 border-bottom: none;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
@@ -1043,12 +890,6 @@
         }
     </style>
     <style>
-        .Portfolio-img {
-            height: 180px;
-            width: auto;
-        }
-    </style>
-    <style>
         .Main-img {
             height: 250px;
             width: auto;
@@ -1081,8 +922,9 @@
                 <div class="hero-label">GIS · CAD · Environmental</div>
                 <h1>Precision.<br />Analysis.<br /><span>Results.</span></h1>
                 <p class="hero-desc">
-                    Independent consulting services for GIS mapping, CAD drafting, and environmental analysis.
-                    Delivering technically rigorous, data-driven solutions for complex land and infrastructure projects.
+                    Independent consulting services covering GIS mapping, CAD drafting, and environmental
+                    permitting support. Clear, accurate deliverables for land and infrastructure projects — the
+                    kind of work agencies and reviewers can approve without back-and-forth.
                 </p>
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn-primary">View Portfolio</a>
@@ -1091,18 +933,9 @@
             </div>
 
             <div class="hero-graphic">
-                <!-- Engineering / topo diagram SVG -->
                 <a href="#" class="nav-logo">
                     <img src="images/logo.png" alt="GEC Consulting Logo" class="Main-img">
                 </a>
-                <!-- grid -->
-                <defs>
-                    <pattern id="sg" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <path d="M30 0 L0 0 0 30" fill="none" stroke="rgba(26,92,138,0.12)" stroke-width="0.5" />
-                    </pattern>
-                </defs>
-                <rect width="420" height="380" fill="url(#sg)" />
-                </svg>
             </div>
         </div>
     </section>
@@ -1112,22 +945,22 @@
         <div class="about-strip-inner">
             <div class="stat-item">
                 <div class="stat-num"><span>GIS</span></div>
-                <div class="stat-label">Spatial Analysis</div>
+                <div class="stat-label">Mapping &amp; Analysis</div>
             </div>
             <div class="about-strip-divider"></div>
             <div class="stat-item">
                 <div class="stat-num"><span>CAD</span></div>
-                <div class="stat-label">Civil Drafting</div>
+                <div class="stat-label">Technical Drafting</div>
             </div>
             <div class="about-strip-divider"></div>
             <div class="stat-item">
                 <div class="stat-num"><span>ENV</span></div>
-                <div class="stat-label">Environmental</div>
+                <div class="stat-label">Site &amp; Permit Work</div>
             </div>
             <div class="about-strip-divider"></div>
             <div class="stat-item">
                 <div class="stat-num"><span>LLC</span></div>
-                <div class="stat-label">Licensed & Insured</div>
+                <div class="stat-label">Licensed &amp; Insured</div>
             </div>
         </div>
     </div>
@@ -1138,9 +971,9 @@
             <div class="section-label">What We Do</div>
             <h2>Technical <span>Services</span></h2>
             <p class="section-intro">
-                GEC Consulting provides independent technical expertise across GIS, CAD, and environmental disciplines —
-                delivering precise, analysis-driven deliverables for municipalities, environmental firms, and private
-                clients.
+                GEC Consulting provides independent technical support across three areas: GIS (digital mapping and
+                location data), CAD (technical site drawings), and environmental permitting. Work is delivered for
+                municipalities, environmental firms, and private clients alike.
             </p>
 
             <div class="services-grid">
@@ -1155,17 +988,17 @@
                         <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5" />
                         <circle cx="24" cy="24" r="2.5" fill="currentColor" />
                     </svg>
-                    <h3>GIS &amp; Spatial Analysis</h3>
+                    <h3>GIS &amp; Mapping</h3>
                     <p>
-                        Comprehensive geographic information system services including spatial data management, custom
-                        map production,
-                        geodatabase development, and site suitability modeling. Proficient in ArcGIS Pro, Drone2Map, and
-                        Python-based geoprocessing workflows.
+                        Building and organizing digital maps and location-based data — from a simple parcel map to
+                        a searchable web map staff and residents can use on their own. Includes site analysis
+                        (figuring out where things should go, or what's near what) using ArcGIS Pro and drone-based
+                        data collection.
                     </p>
                     <div class="service-tags">
                         <span class="tag">ArcGIS Pro</span>
                         <span class="tag">Drone2Map</span>
-                        <span class="tag">Spatial Modeling</span>
+                        <span class="tag">Web Maps</span>
                         <span class="tag">Remote Sensing</span>
                         <span class="tag">Geodatabase</span>
                     </div>
@@ -1183,9 +1016,9 @@
                     </svg>
                     <h3>CAD Drafting &amp; Design</h3>
                     <p>
-                        Professional 2D and 3D CAD production for civil engineering, site planning, and permitting
-                        projects.
-
+                        Technical site drawings for civil engineering, site planning, and permitting projects — the
+                        precise, to-scale drawings that engineers, surveyors, and reviewing agencies require before
+                        a project can move forward.
                     </p>
                     <div class="service-tags">
                         <span class="tag">AutoCAD</span>
@@ -1208,10 +1041,10 @@
                     </svg>
                     <h3>Environmental Consulting</h3>
                     <p>
-                        Environmental field assessments, permit support, and regulatory compliance consulting for land
-                        development
-                        and infrastructure projects. Services include wetland delineation support, city and community
-                        code compliance, and state and federal permitting.
+                        Field assessments and permitting support for land and waterfront development. This
+                        includes identifying wetlands on a site, confirming a project meets local code, and
+                        handling the paperwork for state and federal permits — including FDEP and the Army Corps
+                        of Engineers.
                     </p>
                     <div class="service-tags">
                         <span class="tag">Docks</span>
@@ -1233,97 +1066,68 @@
             <div class="section-label">Selected Work</div>
             <h2>Project <span>Portfolio</span></h2>
             <p class="section-intro">
-                A sample of completed projects spanning GIS mapping, civil CAD, and environmental work.
+                A sample of completed projects — mapping, technical drawings, and permitting support delivered for
+                real clients and agencies.
             </p>
 
             <div class="portfolio-grid">
 
-                <!-- Card 1 -->
+                <!-- Card 1: Dock -->
                 <div class="portfolio-card">
                     <div class="portfolio-img">
-                        <a href="#" class="nav-logo">
-                            <img src="images/Dock.png" alt="GEC Consulting Logo" class="Portfolio-img">
-                        </a>
-                        <svg viewBox="0 0 36 36" fill="none">
-                            <rect x="2" y="6" width="32" height="24" stroke="currentColor" stroke-width="1.5" />
-                            <line x1="2" y1="12" x2="34" y2="12" stroke="currentColor" stroke-width="0.75" />
-                            <polyline points="8,20 16,16 24,22 32,14" stroke="currentColor" stroke-width="1.5" />
-                        </svg>
-                        <span>Add Project Image</span>
+                        <img src="images/Dock.png" alt="Dock site plan drawing showing setbacks and permitting lines">
                         <div class="portfolio-img-overlay"></div>
-                        <span class="portfolio-category">GIS</span>
+                        <span class="portfolio-category">Permitting</span>
                     </div>
                     <div class="portfolio-body">
-                        <h3>GIS Shoreline Analysis</h3>
-                        <p>Technical analysis of shoreline elevation and profile utilizing GIS software. Work included
-                            generating orthomosaics and digital elevation models from drone data, deriving MHW lines and
-                            breakwater elevations, and mapping of the project scope for future change analysis and
-                            scientific communication.</p>
+                        <h3>Dock Site Design &amp; Permitting</h3>
+                        <p>Surveyed a waterfront site and produced the CAD site plan showing shoreline setbacks and
+                            construction limits, then used that drawing to secure permits from the Florida
+                            Department of Environmental Protection (FDEP) and the U.S. Army Corps of Engineers.</p>
                         <div class="portfolio-meta">
-                            <span class="portfolio-meta-detail">Government Agency</span>
-                            <span class="portfolio-meta-detail">2025</span>
+                            <span class="portfolio-meta-detail">Private Client</span>
+                            <span class="portfolio-meta-detail">2026</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2: Magnolia Cemetery -->
                 <div class="portfolio-card">
                     <div class="portfolio-img">
-                        <a href="#" class="nav-logo">
-                            <img src="images/Magnolia.png" alt="GEC Consulting Logo" class="Portfolio-img">
-                        </a>
-                        <svg viewBox="0 0 36 36" fill="none">
-                            <circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="1.5" />
-                            <path d="M18 4 Q24 14 18 18 Q12 14 18 4Z" stroke="currentColor" stroke-width="1.5"
-                                fill="none" />
-                            <line x1="18" y1="18" x2="18" y2="32" stroke="currentColor" stroke-width="1.5" />
-                        </svg>
-                        <span>Add Project Image</span>
+                        <img src="images/Magnolia.png" alt="Magnolia Cemetery map showing burial blocks and lots">
                         <div class="portfolio-img-overlay"></div>
-                        <span class="portfolio-category">Environmental Permitting</span>
+                        <span class="portfolio-category">GIS</span>
                     </div>
                     <div class="portfolio-body">
-                        <h3>Site Planning</h3>
-                        <p>Developed a complete site plan for developement utilizing Civil 3D to delineate wetlands,
-                            draw setback lines for code compliance, and calculate the complete buildable area for the
-                            project site.</p>
+                        <h3>Magnolia Cemetery Web Map</h3>
+                        <p>Mapped every burial block and lot at a historic city cemetery, then published the data
+                            as an interactive web map — so city staff and the public can look up a burial location
+                            without digging through paper records.</p>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-meta-detail">City of Apalachicola, FL</span>
+                            <span class="portfolio-meta-detail">2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: DFA -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="images/DFA.png" alt="Wetland delineation and site drawing showing buildable area">
+                        <div class="portfolio-img-overlay"></div>
+                        <span class="portfolio-category">Site Planning</span>
+                    </div>
+                    <div class="portfolio-body">
+                        <h3>Wetland Delineation &amp; Buildable Area</h3>
+                        <p>Identified and mapped the wetlands on a project site, then calculated exactly how much
+                            of the property is buildable once all required setbacks are applied — giving the
+                            client a clear number before design work even begins.</p>
                         <div class="portfolio-meta">
                             <span class="portfolio-meta-detail">Environmental Consulting Firm</span>
                             <span class="portfolio-meta-detail">2026</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img">
-                        <a href="#" class="nav-logo">
-                            <img src="images/DFA.png" alt="DFA" class="Portfolio-img">
-                        </a>
-                        <svg viewBox="0 0 36 36" fill="none">
-                            <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.5" />
-                            <circle cx="18" cy="18" r="8" stroke="currentColor" stroke-width="1.5" />
-                            <line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" stroke-width="0.75" />
-                            <line x1="18" y1="2" x2="18" y2="34" stroke="currentColor" stroke-width="0.75" />
-                        </svg>
-                        <span>Add Project Image</span>
-                        <div class="portfolio-img-overlay"></div>
-                        <span class="portfolio-category">CAD</span>
-                    </div>
-                    <div class="portfolio-body">
-                        <h3>Environmental Parts Design</h3>
-                        <p>Developed plans for a Datasonde Mounting Bracket that was manufactured for their water
-                            quality monitoring stations. This allowed the client to obtain a robust solution that was
-                            tailer made to their needs.</p>
-                        <div class="portfolio-meta">
-                            <span class="portfolio-meta-detail">Government Agency</span>
-                            <span class="portfolio-meta-detail">2026</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
 
             </div>
         </div>
@@ -1371,8 +1175,8 @@
                 <div class="section-label">Get in Touch</div>
                 <h2>Start a <span style="color: var(--accent-hi);">Project</span></h2>
                 <p>
-                    Available for project-based engagements, retainer agreements, and subcontract work with municipalities and 
-                    environmental and surveying firms. Response within one business day.
+                    Available for project-based engagements, retainer agreements, and subcontract work with
+                    municipalities, environmental firms, and surveying firms. Response within one business day.
                 </p>
 
                 <div class="contact-detail">
@@ -1411,7 +1215,7 @@
                     </div>
                     <div>
                         <div class="contact-detail-label">Location</div>
-                        <div class="contact-detail-val">Apalachicola, FL — Available Nationwide</div>
+                        <div class="contact-detail-val">Apalachicola, FL &mdash; Available Nationwide</div>
                     </div>
                 </div>
             </div>
@@ -1446,7 +1250,7 @@
                         <label for="service">Service Needed</label>
                         <select id="service">
                             <option value="" disabled selected>Select a service area</option>
-                            <option>GIS &amp; Spatial Analysis</option>
+                            <option>GIS &amp; Mapping</option>
                             <option>CAD Drafting &amp; Design</option>
                             <option>Environmental Consulting</option>
                             <option>Multiple / Not Sure</option>
@@ -1471,7 +1275,7 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="footer-copy">&copy; 2025 GEC Consulting, LLC &mdash; All Rights Reserved</div>
+        <div class="footer-copy">&copy; 2026 GEC Consulting, LLC &mdash; All Rights Reserved</div>
     </footer>
 
 </body>
