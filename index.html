@@ -199,6 +199,12 @@
             flex-wrap: wrap;
         }
 
+        .btn-primary,
+        .btn-ghost {
+            min-width: 190px;
+            text-align: center;
+        }
+
         .btn-primary {
             font-family: var(--mono);
             font-size: 12px;
@@ -224,16 +230,17 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--ink);
-            background: transparent;
+            background: var(--paper);
             padding: 14px 28px;
             text-decoration: none;
             border: 1px solid var(--rule);
-            transition: border-color 0.2s, color 0.2s;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
             display: inline-block;
         }
 
         .btn-ghost:hover {
             border-color: var(--accent);
+            background: var(--white);
         }
 
         .hero-graphic {
@@ -464,13 +471,6 @@
             display: block;
         }
 
-        .portfolio-img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, transparent 55%, rgba(40, 40, 40, 0.55) 100%);
-            pointer-events: none;
-        }
-
         .portfolio-category {
             position: absolute;
             top: 12px;
@@ -613,7 +613,6 @@
 
         .contact-left h2 span {
             color: var(--cream);
-            opacity: 0.6;
         }
 
         .contact-left p {
@@ -1080,7 +1079,6 @@
                 <div class="portfolio-card">
                     <div class="portfolio-img">
                         <img src="images/Dock.png" alt="Dock site plan drawing showing setbacks and permitting lines">
-                        <div class="portfolio-img-overlay"></div>
                         <span class="portfolio-category">Permitting</span>
                     </div>
                     <div class="portfolio-body">
@@ -1099,7 +1097,6 @@
                 <div class="portfolio-card">
                     <div class="portfolio-img">
                         <img src="images/Magnolia.png" alt="Magnolia Cemetery map showing burial blocks and lots">
-                        <div class="portfolio-img-overlay"></div>
                         <span class="portfolio-category">GIS</span>
                     </div>
                     <div class="portfolio-body">
@@ -1118,7 +1115,6 @@
                 <div class="portfolio-card">
                     <div class="portfolio-img">
                         <img src="images/DFA.png" alt="Wetland delineation and site drawing showing buildable area">
-                        <div class="portfolio-img-overlay"></div>
                         <span class="portfolio-category">Site Planning</span>
                     </div>
                     <div class="portfolio-body">
