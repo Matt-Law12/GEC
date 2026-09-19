@@ -43,6 +43,12 @@
             scroll-behavior: smooth;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
         body {
             font-family: var(--body);
             color: var(--ink);
@@ -50,6 +56,48 @@
             font-weight: 400;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* ── ACCESSIBILITY: SKIP LINK ── */
+        .skip-link {
+            position: absolute;
+            top: -48px;
+            left: 0;
+            z-index: 1000;
+            background: var(--cream);
+            color: var(--ink);
+            padding: 12px 20px;
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* ── ACCESSIBILITY: VISIBLE FOCUS STATES ── */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--accent-hi);
+            outline-offset: 2px;
+        }
+
+        .contact-section a:focus-visible,
+        .contact-section button:focus-visible,
+        .contact-section input:focus-visible,
+        .contact-section select:focus-visible,
+        .contact-section textarea:focus-visible,
+        nav a:focus-visible,
+        nav button:focus-visible {
+            outline: 2px solid var(--cream);
+            outline-offset: 2px;
         }
 
         /* ── GRID TEXTURE ── */
@@ -651,7 +699,7 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255, 251, 241, 0.35);
+            color: rgba(255, 251, 241, 0.6);
             margin-bottom: 2px;
         }
 
@@ -684,7 +732,7 @@
             font-size: 10px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255, 251, 241, 0.45);
+            color: rgba(255, 251, 241, 0.6);
         }
 
         .form-group input,
@@ -757,7 +805,7 @@
             font-size: 16px;
             font-weight: 700;
             letter-spacing: 0.08em;
-            color: rgba(255, 251, 241, 0.35);
+            color: rgba(255, 251, 241, 0.6);
         }
 
         .footer-copy {
@@ -765,7 +813,7 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 251, 241, 0.22);
+            color: rgba(255, 251, 241, 0.55);
         }
 
         .footer-links {
@@ -779,13 +827,13 @@
             font-size: 10px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 251, 241, 0.28);
+            color: rgba(255, 251, 241, 0.55);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: rgba(255, 251, 241, 0.65);
+            color: rgba(255, 251, 241, 0.85);
         }
 
         /* ── SEPARATOR ── */
@@ -908,8 +956,10 @@
 
 <body>
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- NAV -->
-    <nav>
+    <nav aria-label="Primary">
         <a href="#" class="nav-logo">
             <img src="images/Logo%20Off%20White.png" alt="GEC Consulting Logo" class="logo-img">
         </a>
@@ -922,6 +972,8 @@
 
         <a href="#contact" class="nav-cta">Request a Proposal</a>
     </nav>
+
+    <main id="main-content">
 
     <!-- HERO -->
     <section class="hero">
@@ -941,9 +993,7 @@
             </div>
 
             <div class="hero-graphic">
-                <a href="#" class="nav-logo">
-                    <img src="images/Logo.png" alt="GEC Consulting Logo" class="Main-img">
-                </a>
+                <img src="images/Logo.png" alt="GEC Consulting Logo" class="Main-img">
             </div>
         </div>
     </section>
@@ -982,7 +1032,7 @@
             <div class="services-grid">
                 <!-- GIS -->
                 <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="4" y="4" width="40" height="40" rx="0" stroke="currentColor" stroke-width="1.5" />
                         <line x1="4" y1="16" x2="44" y2="16" stroke="currentColor" stroke-width="1" opacity="0.4" />
                         <line x1="4" y1="28" x2="44" y2="28" stroke="currentColor" stroke-width="1" opacity="0.4" />
@@ -1009,7 +1059,7 @@
 
                 <!-- CAD -->
                 <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="6" y="8" width="36" height="32" rx="0" stroke="currentColor" stroke-width="1.5" />
                         <line x1="6" y1="14" x2="42" y2="14" stroke="currentColor" stroke-width="1" />
                         <line x1="14" y1="8" x2="14" y2="14" stroke="currentColor" stroke-width="1" />
@@ -1034,7 +1084,7 @@
 
                 <!-- Environmental -->
                 <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="service-icon" aria-hidden="true" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5" />
                         <path d="M24 6 Q32 18 24 24 Q16 18 24 6Z" stroke="currentColor" stroke-width="1.5"
                             fill="none" />
@@ -1181,7 +1231,7 @@
 
                 <div class="contact-detail">
                     <div class="contact-detail-icon">
-                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="1" y="3" width="14" height="10" rx="0" stroke="currentColor" stroke-width="1.25" />
                             <polyline points="1,3 8,9 15,3" stroke="currentColor" stroke-width="1.25" />
                         </svg>
@@ -1194,7 +1244,7 @@
 
                 <div class="contact-detail">
                     <div class="contact-detail-icon">
-                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3 1h3l1 4-2 1a10 10 0 005 5l1-2 4 1v3a1 1 0 01-1 1C7 14 2 9 2 2a1 1 0 011-1z"
                                 stroke="currentColor" stroke-width="1.25" />
                         </svg>
@@ -1207,7 +1257,7 @@
 
                 <div class="contact-detail">
                     <div class="contact-detail-icon">
-                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.25" />
                             <path d="M8 1a6 6 0 016 6c0 4-6 9-6 9S2 11 2 7a6 6 0 016-6z" stroke="currentColor"
                                 stroke-width="1.25" />
@@ -1266,6 +1316,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- FOOTER -->
     <footer>
